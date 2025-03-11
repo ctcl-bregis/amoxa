@@ -1,0 +1,43 @@
+{
+    "activeFile": "test.tmx",
+    "expandedProjectPaths": [
+        "."
+    ],
+    "fileStates": {
+        "/home/ctcl/Documents/pyrpg/assets/tiles/editor.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/ctcl/Documents/pyrpg/assets/tiles/tfloor_001.tsx": {
+            "scaleInDock": 1
+        },
+        "editor.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "test.tmx": {
+            "scale": 0.75,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 313.33333333333326,
+                "y": 247.33333333333331
+            }
+        }
+    },
+    "last.externalTilesetPath": "/home/ctcl/Documents/pyrpg/assets/tiles",
+    "last.imagePath": "/home/ctcl/Documents/pyrpg/assets/tiles",
+    "loadedWorlds": [
+        "/home/ctcl/Documents/pyrpg/maps/test.world"
+    ],
+    "openFiles": [
+        "test.tmx"
+    ],
+    "project": "pyrpg.tiled-project",
+    "recentFiles": [
+        "test.tmx",
+        "/home/ctcl/Documents/pyrpg/assets/tiles/editor.tsx",
+        "editor.tsx"
+    ],
+    "tileset.lastUsedFilter": "Tiled tileset files (*.tsx *.xml)",
+    "tileset.lastUsedFormat": "tsx"
+}
