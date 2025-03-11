@@ -7,22 +7,22 @@
 from pathlib import Path
 import pytiled_parser
 import pygame
-pygame.display.set_mode((640,480), depth = 24, vsync = 1)
+from . import map
 
-clock = pygame.time.Clock()
+import logging
+logger = logging.Logger
+logger.setLevel(logger, level=logging.DEBUG)
 
-test_map = pytiled_parser.parse_map(Path("maps/test.tmx"))
+def main():
+    running = True
+    pygame.display.set_mode((640,480), depth = 24, vsync = 1)
+    clock = pygame.time.Clock()
 
-print(test_map)
+    while running:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                return
 
-running = True
+        clock.tick(60)
+        pygame.display.flip()
 
-while running:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
-
-
-
-    clock.tick(60)
-    pygame.display.flip()
