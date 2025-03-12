@@ -7,13 +7,15 @@
 from pathlib import Path
 import pytiled_parser
 import pygame
-from . import map
+from . import maputils
 
 import logging
 logger = logging.Logger
 logger.setLevel(logger, level=logging.DEBUG)
 
 def main():
+    maputils.loadmaps()
+    
     running = True
     pygame.display.set_mode((640,480), depth = 24, vsync = 1)
     clock = pygame.time.Clock()
