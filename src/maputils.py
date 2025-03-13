@@ -8,6 +8,7 @@ import os
 import pytiled_parser 
 import pathlib
 from PIL import Image, ImageDraw
+from typing import List
 
 class Tileset:
     def __init__(self, path):
@@ -16,22 +17,32 @@ class Tileset:
         print(self.tsx.properties())
 
 
-class Map: 
+# Apparently naming this "Map" clobbers something else?
+class GameMap: 
     def __init__(self, path):
         self.path = pathlib.Path(path)
         self.tmx = pytiled_parser.parse_map(self.path)
+        tilesets = self.tmx.tilesets
+
         
+
+        # "floor" is the only layer drawn here
+        for layer in self.tmx.layers:
+            if layer.name == "floor":
+                floor = layer
+                break
+        
+
         mapsize = (self.tmx.tile_size[0] * self.tmx.map_size[0], self.tmx.tile_size[1] * self.tmx.map_size[1])
         im = Image.new("RGBA", mapsize, color = (0,0,0,0))
-        draw = ImageDraw(im)
+ 
+        mapimage = 
 
-def loadtilesets():
-    tsfiles = ["assets/tiles/" + f for f in os.listdir("maps/") if f.endswith(".tsx") and os.path.isfile("maps/" + f)]
-    tilesets = [Tileset(t) for t in tsfiles]
-    return tilesets
 
-def loadmaps():
+
+
+def loadmaps() -> List[GameMap]:
     mapfiles = ["maps/" + f for f in os.listdir("maps/") if f.endswith(".tmx") and os.path.isfile("maps/" + f)]
-    maps = [Map(m) for m in mapfiles]
+    maps = [GameMap(m) for m in mapfiles]
     return maps
 

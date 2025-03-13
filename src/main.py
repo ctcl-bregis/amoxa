@@ -14,7 +14,7 @@ logger = logging.Logger
 logger.setLevel(logger, level=logging.DEBUG)
 
 def main():
-    maputils.loadmaps()
+    maps = maputils.loadmaps()
     
     running = True
     pygame.display.set_mode((640,480), depth = 24, vsync = 1)
@@ -24,6 +24,8 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
+
+        maps[0].
 
         clock.tick(60)
         pygame.display.flip()
