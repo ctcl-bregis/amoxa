@@ -10,19 +10,13 @@ import pathlib
 from PIL import Image, ImageDraw
 from typing import List
 
-class Tileset:
-    def __init__(self, path):
-        self.path = pathlib.Path(path)
-        self.tsx = pytiled_parser.parse_tileset(self.path)
-        print(self.tsx.properties())
-
-
 # Apparently naming this "Map" clobbers something else?
 class GameMap: 
     def __init__(self, path):
         self.path = pathlib.Path(path)
         self.tmx = pytiled_parser.parse_map(self.path)
-        #print(self.tmx.tilesets)
+        
+        tilesets = self.tmx.tilesets
         print(self.tmx)
 
         # "floor" is the only layer drawn here
@@ -30,17 +24,14 @@ class GameMap:
             if layer.name == "floor":
                 floor = layer
                 break
-    
-        
 
         mapsize = (self.tmx.tile_size[0] * self.tmx.map_size[0], self.tmx.tile_size[1] * self.tmx.map_size[1])
         im = Image.new("RGBA", mapsize, color = (0,0,0,0))
         draw = ImageDraw.Draw(im)
 
-        
-        
-
-
+        for x in range(mapsize[0]):
+            for y in range(mapsize[1]):
+                pass
 
 
 def loadmaps() -> List[GameMap]:
