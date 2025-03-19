@@ -2,7 +2,7 @@
 # File: src/main.py
 # Purpose: Main game script
 # Created: February 22, 2025
-# Modified: March 11, 2025
+# Modified: March 19, 2025
 
 from pathlib import Path
 import pytiled_parser
@@ -25,7 +25,7 @@ def main():
             if event.type == pygame.QUIT:
                 return
 
-        maps[0].
+       # maps[0].
 
         clock.tick(60)
         pygame.display.flip()

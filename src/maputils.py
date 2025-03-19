@@ -2,7 +2,7 @@
 # File: src/map.py
 # Purpose: Provide functions for loading and processing map files
 # Created: March 11, 2025
-# Modified: March 12, 2025
+# Modified: March 19, 2025
 
 import os
 import pytiled_parser 
@@ -22,21 +22,23 @@ class GameMap:
     def __init__(self, path):
         self.path = pathlib.Path(path)
         self.tmx = pytiled_parser.parse_map(self.path)
-        tilesets = self.tmx.tilesets
-
-        
+        #print(self.tmx.tilesets)
+        print(self.tmx)
 
         # "floor" is the only layer drawn here
         for layer in self.tmx.layers:
             if layer.name == "floor":
                 floor = layer
                 break
+    
         
 
         mapsize = (self.tmx.tile_size[0] * self.tmx.map_size[0], self.tmx.tile_size[1] * self.tmx.map_size[1])
         im = Image.new("RGBA", mapsize, color = (0,0,0,0))
- 
-        mapimage = 
+        draw = ImageDraw.Draw(im)
+
+        
+        
 
 
 
