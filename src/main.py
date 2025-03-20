@@ -2,10 +2,10 @@
 # File: src/main.py
 # Purpose: Main game script
 # Created: February 22, 2025
-# Modified: March 19, 2025
+# Modified: March 20, 2025
 
 from pathlib import Path
-import pytiled_parser
+import pytmx
 import pygame
 from . import maputils
 
@@ -17,15 +17,19 @@ def main():
     maps = maputils.loadmaps()
     
     running = True
-    pygame.display.set_mode((640,480), depth = 24, vsync = 1)
+    display = pygame.display.set_mode((640,480), depth = 24, vsync = 1)
     clock = pygame.time.Clock()
+
+    cmap = maps[0]
 
     while running:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
-
-       # maps[0].
+        
+        for x in range(cmap.tmx.width):
+            for y in range(cmap.tmx.height):
+                image = tmx_data.get_tile_image(x, y, "floor")
 
         clock.tick(60)
         pygame.display.flip()
