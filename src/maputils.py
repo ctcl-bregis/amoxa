@@ -6,6 +6,7 @@
 
 import os
 import pytmx 
+from pytmx.util_pygame import load_pygame
 import pathlib
 from PIL import Image, ImageDraw
 from typing import List
@@ -15,7 +16,7 @@ import pygame
 class GameMap: 
     def __init__(self, path):
         self.path = pathlib.Path(path)
-        self.tmx = pytmx.TiledMap(self.path)
+        self.tmx = load_pygame(self.path)
 
 def loadmaps() -> List[GameMap]:
     mapfiles = ["maps/" + f for f in os.listdir("maps/") if f.endswith(".tmx") and os.path.isfile("maps/" + f)]

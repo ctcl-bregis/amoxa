@@ -6,6 +6,7 @@
 
 from pathlib import Path
 import pytmx
+from pytmx.util_pygame import load_pygame
 import pygame
 from . import maputils
 
@@ -14,11 +15,11 @@ logger = logging.Logger
 logger.setLevel(logger, level=logging.DEBUG)
 
 def main():
-    maps = maputils.loadmaps()
-    
     running = True
     display = pygame.display.set_mode((640,480), depth = 24, vsync = 1)
     clock = pygame.time.Clock()
+
+    maps = maputils.loadmaps()
 
     cmap = maps[0]
 
@@ -29,7 +30,13 @@ def main():
         
         for x in range(cmap.tmx.width):
             for y in range(cmap.tmx.height):
-                image = tmx_data.get_tile_image(x, y, "floor")
+                layer = cmap.tmx.layernames["floor"].id
+                image = cmap.tmx.get_tile_image(x, y, 0)
+                if image:
+                    display.blit(image, (x * 32, y * 32))
+
+        keys = pygame.key.get_pressed()
+        
 
         clock.tick(60)
         pygame.display.flip()
