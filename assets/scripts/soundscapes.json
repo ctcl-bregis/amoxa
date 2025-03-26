@@ -1,0 +1,10 @@
+{
+    "main": {
+        "playlooping": {
+            "volume": 1,
+            "pitch": 100,
+            "wave": "assets/sound/ambient/valve/amb_abstract_air_lp_07_110p"
+        }
+    }
+
+}
