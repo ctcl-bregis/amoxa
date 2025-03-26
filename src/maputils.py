@@ -2,7 +2,7 @@
 # File: src/map.py
 # Purpose: Provide functions for loading and processing map files
 # Created: March 11, 2025
-# Modified: March 21, 2025
+# Modified: March 26, 2025
 
 import os
 import pytmx 
@@ -37,6 +37,12 @@ class GameMap:
                     mapimage.paste(image, pos)
 
         self.image = mapimage
+
+        # Get player start position
+        for obj in self.tmx.objects:
+            if obj.type == "info_player_start":
+                pstart = obj
+        self.player_start = (pstart.x, pstart.y)
 
 def pil2pyg(image) -> pygame.Surface:
     return pygame.image.fromstring(image.tobytes(), image.size, image.mode).convert()
