@@ -15,7 +15,7 @@ import logging
 logger = logging.Logger
 logger.setLevel(logger, level=logging.DEBUG)
 
-game_size = (512,384)
+game_size = (640,400)
 scale = 1
 
 output = pygame.display.set_mode((game_size[0] * scale, game_size[1] * scale), depth = 24, vsync = 1)

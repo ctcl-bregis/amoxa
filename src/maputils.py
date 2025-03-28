@@ -18,7 +18,7 @@ class GameMap:
         self.path = pathlib.Path(path)
         self.tmx = pytmx.TiledMap("maps/test.tmx")
 
-        mapimage = Image.new("RGBA", (self.tmx.width * 32, self.tmx.height * 32))
+        mapimage = Image.new("RGBA", (self.tmx.width * 40, self.tmx.height * 40))
 
         for x in range(self.tmx.width):
             for y in range(self.tmx.height):
@@ -33,7 +33,7 @@ class GameMap:
                 image = Image.open(tile[0]).crop((x1, y1, x2, y2))
 
                 if image:
-                    pos = (x * 32, y * 32, (x + 1) * 32, (y + 1) * 32)
+                    pos = (x * 40, y * 40, (x + 1) * 40, (y + 1) * 40)
                     mapimage.paste(image, pos)
 
         self.image = mapimage
